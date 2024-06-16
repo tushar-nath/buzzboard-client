@@ -42,7 +42,8 @@ export function Signup() {
         password,
       });
       console.log("User signed up:", response.data);
-      navigate("/login");
+      localStorage.setItem("token", response.data.token);
+      navigate("/home");
     } catch (error) {
       console.error("Error signing up:", error);
     } finally {

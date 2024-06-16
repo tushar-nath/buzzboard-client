@@ -32,7 +32,8 @@ export function Login() {
     try {
       const response = await login(formData);
       console.log("User logged in:", response.data);
-      navigate("/");
+      localStorage.setItem("token", response.data.token);
+      navigate("/dashboard");
     } catch (error) {
       console.error("Error logging in:", error);
     } finally {
