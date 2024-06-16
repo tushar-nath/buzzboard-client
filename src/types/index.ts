@@ -1,8 +1,8 @@
 export interface IUser {
   id: string;
   name: string;
-  mobileNo: string;
   email: string;
+  mobileNo: string;
   followers: string[];
   following: string[];
 }

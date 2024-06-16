@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:3000/api";
+const API_URL = "https://buzzboard-server.vercel.app/api";
 
 export const api = axios.create({
   baseURL: API_URL,
@@ -9,8 +9,12 @@ export const api = axios.create({
   },
 });
 
-// Add more specific API methods here if needed
-export const signup = (data: unknown) => api.post("/users/signup", data);
-export const login = (data: unknown) => api.post("/users/login", data);
-export const getUsers = () => api.get("/users");
-// Add other API methods as required
+export const signup = (data: {
+  name: string;
+  email: string;
+  mobileNo: string;
+  password: string;
+}) => api.post("/users/signup", data);
+
+export const login = (data: { email: string; password: string }) =>
+  api.post("/users/login", data);
